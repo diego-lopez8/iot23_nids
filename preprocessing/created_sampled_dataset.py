@@ -82,9 +82,9 @@ def clean_dataset(bro_df_complete):
 def main():
     # TODO: add a intermediary non-cleaned dataframe?
     find_raw_data(args.data_dir)
-    bro_df_complete.to_parquet(f"{args.data_dir}/processed/bro_df_complete.parquet")
+    bro_df_complete.to_parquet(f"{args.data_dir}/processed/bro_df_complete.parquet", engine="fastparquet")
     bro_df_complete = clean_dataset(bro_df_complete)
-    bro_df_complete.to_parquet(f"{args.data_dir}/clean/bro_df_clean.parquet")
+    bro_df_complete.to_parquet(f"{args.data_dir}/clean/bro_df_clean.parquet", engine="fastparquet")
 
 if __name__ == "__main__":
     main()
